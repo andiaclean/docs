@@ -11,7 +11,7 @@ Branch는 Apple Search Ads 어트리뷰션 API를 가져와 **[Apple Search Ads]
 설정
 ---
 
-한국어테스트In order to check if the user came from an Apple Search Ads, you must make the attribution call before Branch initializes. 한국어테스트As a warning, Apple's Search Ads Attribution API may take more than 1 second round trip. 한국어테스트This means that your call to Branch's initSession to the execution of the callback block may be delayed by this additional 1 second.
+In order to check if the user came from an Apple Search Ads, you must make the attribution call before Branch initializes. As a warning, Apple's Search Ads Attribution API may take more than 1 second round trip. This means that your call to Branch's initSession to the execution of the callback block may be delayed by this additional 1 second.
 
 ### iAD 및 AdSupport 가져오기
 
@@ -39,7 +39,7 @@ branch.initSession.....
 
 #### Apple Search Ads 디버그
 
-한국어테스트We've also added a debug mode which will demonstrate the functionality. 한국어테스트You can enable it like so, but just remember to remove this before release\!
+We've also added a debug mode which will demonstrate the functionality. You can enable it like so, but just remember to remove this before release\!
 
 ```obj-c
 Branch *branch = [Branch getInstance];
@@ -91,7 +91,7 @@ branch.initSession.....
 * *올바른 계정에 대한 인증서를 생성했나요?* Apple Search Ads UI의 우측 상단에서 현재 표시되는 계정을 토글로 선택할 수 있습니다.
 * *인증서에 관련 권한이 할당되어 있나요?* Apple Search Ads 데이터를 가져오려면 인증서에 읽기 전용 이상의 권한이 할당되어 있어야 합니다.
 
-한국어테스트Still not working? 한국어테스트Try downloading a new certificate and uploading that to Branch.
+Still not working? Try downloading a new certificate and uploading that to Branch.
 
 \{\! ingredients/deep\-linked\-ads/cost\-data\-discrepancies.md \!\}
 
@@ -107,7 +107,7 @@ branch.initSession.....
 
 ### 어트리뷰션 윈도우 변경
 
-한국어테스트Attribution windows can be specified at the global account level or on a per link basis with the link level window taking priority. 한국어테스트See the below instructions for setup.
+Attribution windows can be specified at the global account level or on a per link basis with the link level window taking priority. See the below instructions for setup.
 
 #### 계정 수준 어트리뷰션 윈도우
 
@@ -119,7 +119,7 @@ Link Settings > Attribution Windows에서 어트리뷰션 윈도우를 편집할
 
 #### 광고 네트워크 어트리뷰션 윈도우
 
-한국어테스트You can edit your attribution windows at the ad network level, if your ad network requires it. 한국어테스트This is recommended when you enable networks like Apple Search Ads, Facebook and Google, who may have different windows for installs. 한국어테스트With this, you can preserve your Account Level Attribution Windows, as well.
+You can edit your attribution windows at the ad network level, if your ad network requires it. This is recommended when you enable networks like Apple Search Ads, Facebook and Google, who may have different windows for installs. With this, you can preserve your Account Level Attribution Windows, as well.
 
 ![이미지](/_assets/img/pages/deep-linked-ads/branch-universal-ads/anaw_clear.png)
 
@@ -128,7 +128,7 @@ Link Settings > Attribution Windows에서 어트리뷰션 윈도우를 편집할
 
 ### Apple Search Ads 대시보드와 비교한 인스톨 불일치
 
-한국어테스트There are a few possible causes of discrepancies with Apple Search Ads. 한국어테스트Due to the low customizability of Apple Search Ads' attribution settings, discrepancies are often higher on Apple Search Ads than other platforms, even though performance may be solid and reporting may be working as expected.
+Apple Search Ads와의 불일치에는 몇 가지 원인이 있을 수 있습니다. Apple Search Ads 어트리뷰션 설정은 자유롭게 맞춤 설정하기가 어렵기 때문에, 성과가 우수하고 보고 기능이 올바르게 작동하더라도 다른 플랫폼에 비해 Apple Search Ads에서 종종 더 큰 불일치가 발생합니다.
 
 * *시간대.* Apple Search Ads의 시간대\(Settings > Overview > Account Information에서 확인\)가 Branch 대시보드의 시간대\(Account Settings 아래에서 확인\)와 일치하는지 확인하세요.
 * *LAT\(광고 트래킹 제한\) 설정.* Apple Search Ads는 사용자가 광고 트래킹 제한을 설정했을 경우 인스톨을 제3자에게 보고하지 않습니다. 하지만 광고 트래킹 제한 상태와 상관없이 Apple Search Ads 대시보드에는 기본적으로 모든 인스톨이 표시됩니다. Apple Search Ads 보고 대시보드에 열을 추가하여 광고 트래킹 제한 설정 및 해제 인스톨의 대략적인 규모를 확인할 수 있습니다. Branch 대시보드에는 이러한 인스톨 정보가 표시되지 않습니다.
@@ -144,5 +144,5 @@ Link Settings > Attribution Windows에서 어트리뷰션 윈도우를 편집할
 
 ### 인스톨 또는 전환 이벤트가 Branch 대시보드에 키워드 없이 표시됨
 
-한국어테스트There are "Keyword" and "Search Match" match sources for Apple Search Ads. 한국어테스트The Search Match feature automatically matches your ad to relevant user searches on the App Store, rather than a rubric of preassigned keywords. 한국어테스트Installs attributed to Search Matches do not have keywords associated with them. 한국어테스트Search Match can be enabled & disabled at the Ad Group level in the Apple Search Ads dashboard.
+Apple Search Ads에는 일치 출처로 '키워드' 및 '검색 일치'가 있습니다. 검색 일치 기능은 미리 할당된 키워드 지시문을 사용하지 않고, App Store에서 여러분의 광고가 관련성 높은 사용자 검색과 일치하는지 자동으로 확인합니다. 검색 일치를 통해 발생한 인스톨에는 관련 키워드가 없습니다. 검색 일치는 Apple Search Ads 대시보드의 광고 그룹 수준에서 활성화하거나 비활성화할 수 있습니다.
 
