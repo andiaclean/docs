@@ -1,7 +1,7 @@
 개요
 ---
 
-![Apple_Search_Ads](https://cdn.branch.io/branch-assets/ad-partner-manager/388787843096400122/search_ads-1528501330030.png)
+![Apple Search Ads](/_assets/img/pages/deep-linked-ads/apple-search/search-ads-reduced-logo.png)
 
 Branch는 Apple Search Ads 어트리뷰션 API를 가져와 **[Apple Search Ads](https://searchads.apple.com/)** 캠페인의 트래킹을 지원합니다.  그러면 여러분은 Apple Search Ads 대시보드에서 설정한 캠페인 이름과 같은 파라미터를 사용할 수 있으며, 인스톨 후 앱에서 특수한 조치를 취할 수 있습니다. 아니면 Branch 대시보드에서 총 인스톨 수, 리퍼럴, 앱 링크 통계와 같은 Branch 통계 자료를 사용하여 캠페인의 효과를 트래킹할 수도 있습니다.
 
@@ -11,7 +11,7 @@ Branch는 Apple Search Ads 어트리뷰션 API를 가져와 **[Apple Search Ads]
 설정
 ---
 
-In order to check if the user came from an Apple Search Ads, you must make the attribution call before Branch initializes. As a warning, Apple's Search Ads Attribution API may take more than 1 second round trip. This means that your call to Branch's initSession to the execution of the callback block may be delayed by this additional 1 second.
+사용자가 Apple Search Ads를 통해 유입되었는지 확인하려면 어트리뷰션 호출을 한 후 Branch를 실행해야 합니다. Apple's Search Ads 어트리뷰션 API의 경우 응답에 2초 이상 소요될 수 있습니다. 즉, Branch initSession에 호출을 보내면 콜백 차단이 실행되어 추가적으로 1초의 지연이 발생할 수 있습니다.
 
 ### iAD 및 AdSupport 가져오기
 
@@ -21,7 +21,7 @@ Apple의 **iAd.framework** 및 **AdSupport.framework** 를 Xcode 프로젝트의
 
 #### Apple Search Ads 확인 활성화
 
-이 확인을 활성화하려면 Branch 싱글톤을 생성한 후 `delayInitToCheckForSearchAds` 호출을 **AppDelegate.m** \(또는 **AppDelegate.swift** \) 파일에 추가하세요. 이 작업은 `initSession` 호출 *전에* 수행해야 합니다. 코드 형태는 다음과 같습니다.
+이 확인을 활성화하려면 Branch 싱글톤을 생성한 후 `delayInitToCheckForSearchAds` 호출을 **AppDelegate.m** \(또는 **AppDelegate.swift** \) 파일에 추가하세요. 이 작업은 *initSession* 호출 `전에` 수행해야 합니다. 코드 형태는 다음과 같습니다.
 
 ```obj-c
 Branch *branch = [Branch getInstance];
@@ -39,7 +39,7 @@ branch.initSession.....
 
 #### Apple Search Ads 디버그
 
-We've also added a debug mode which will demonstrate the functionality. You can enable it like so, but just remember to remove this before release\!
+Branch는 기능을 확인할 수 있는 디버그 모드도 추가했습니다. 디버그 모드는 아래처럼 사용할 수 있으며, 출시 전에 삭제해야 한다는 점을 기억해 두세요.
 
 ```obj-c
 Branch *branch = [Branch getInstance];
@@ -58,23 +58,21 @@ branch.initSession.....
 비용 데이터 설정
 ---------
 
-1. 계정 관리자를 통해 비용 데이터\(베타\)에 대한 액세스를 요청하면 대시보드에서 활성화됩니다.
-
-2. [Apple Search Ads UI > Settings > API](https://app.searchads.apple.com/cm/app/settings/apicertificates)로 이동합니다. *우측 상단의 계정 선택기를 사용하여 올바른 계정을 선택했는지 확인하세요.*
+1. [Apple Search Ads UI > Settings > API](https://app.searchads.apple.com/cm/app/settings/apicertificates)로 이동합니다. *우측 상단의 계정 선택기를 사용하여 올바른 계정을 선택했는지 확인하세요.* 
 
    ![이미지](/_assets/img/pages/deep-linked-ads/apple-search/apple-api-screen.png)
-3. API 인증서 생성
+2. API 인증서 생성
 
    ![이미지](/_assets/img/pages/deep-linked-ads/apple-search/apple-search-api.png)
-4. API 인증서를 컴퓨터에 다운로드합니다. 폴더의 압축을 해제하면 `.key` 및 `.pem` 파일이 각각 하나씩 있습니다.
+3. API 인증서를 컴퓨터에 다운로드합니다. 폴더의 압축을 해제하면 `.key` 및 `.pem` 파일이 각각 하나씩 있습니다.
 
    ![이미지](/_assets/img/pages/deep-linked-ads/apple-search/apple-download-certs.png)
-5. Branch 대시보드에서 [Apple Search Ads partner manager](https://dashboard.branch.io/ads/partner-management/a_apple?tab=settings)로 이동합니다.
+4. Branch 대시보드에서 [Apple Search Ads partner manager](https://dashboard.branch.io/ads/partner-management/a_apple?tab=settings)로 이동합니다.
 
-6. 여기에서 각 파일을 선택하고 파란색 업로드 화살표를 클릭하여 인증서를 업로드합니다. *다음* 을 클릭하여 계속 진행합니다.
+5. 여기에서 각 파일을 선택하고 파란색 업로드 화살표를 클릭하여 인증서를 업로드합니다. *다음* 을 클릭하여 계속 진행합니다.
 
    ![이미지](/_assets/img/pages/deep-linked-ads/apple-search/apple-upload-certs.png)
-7. 데이터를 수집할 조직을 선택하고 *Save* 를 클릭하여 Apple Search Ads의 비용 데이터를 활성화합니다.
+6. 데이터를 수집할 조직을 선택하고 *Save* 를 클릭하여 Apple Search Ads의 비용 데이터를 활성화합니다.
 
 \{\! ingredients/deep\-linked\-ads/cost\-data.md \!\}
 
@@ -86,14 +84,27 @@ branch.initSession.....
 
 #### 비용, 클릭 및 노출 데이터가 표시되지 않는 경우
 
-한국어테스트Verify that you have selected the right certificates:
+올바른 인증서를 선택했는지 확인하세요.
 
 * *올바른 계정에 대한 인증서를 생성했나요?* Apple Search Ads UI의 우측 상단에서 현재 표시되는 계정을 토글로 선택할 수 있습니다.
 * *인증서에 관련 권한이 할당되어 있나요?* Apple Search Ads 데이터를 가져오려면 인증서에 읽기 전용 이상의 권한이 할당되어 있어야 합니다.
 
-Still not working? Try downloading a new certificate and uploading that to Branch.
+그래도 표시되지 않는다면 새 인증서를 다운로드하여 Branch에 업로드해 보세요.
 
 \{\! ingredients/deep\-linked\-ads/cost\-data\-discrepancies.md \!\}
+
+Branch에 매핑된 Apple Search Ads 데이터
+--------------------------------
+
+Branch는 Apple Search Ads 어트리뷰션 API를 통해 다음 매개변수를 수신하여 매핑합니다.
+
+| Apple Search Ads 매개변수 |                        Branch 매핑 필드                        |
+|-----------------------|------------------------------------------------------------|
+| iad\-campaign\-name | last\_attributed\_touch\_data\_tilde\_campaign        |
+| iad\-campaign\-id   | last\_attributed\_touch\_data\_tilde\_campaign\_id   |
+| iad\-adgroup\-name  | last\_attributed\_touch\_data\_tilde\_ad\_set\_name |
+| iad\-adgroup\-id    | last\_attributed\_touch\_data\_tilde\_ad\_set\_id   |
+| iad\-keyword         | last\_attributed\_touch\_data\_tilde\_keyword\_text  |
 
 대시보드에서 어트리뷰션 확인
 ---------------
@@ -107,7 +118,7 @@ Still not working? Try downloading a new certificate and uploading that to Branc
 
 ### 어트리뷰션 윈도우 변경
 
-Attribution windows can be specified at the global account level or on a per link basis with the link level window taking priority. See the below instructions for setup.
+어트리뷰션 윈도우는 글로벌 계정 수준이나 우선 순위를 갖는 링크 수준 윈도우가 있는 각 링크에서 지정할 수 있습니다. 설정 방법은 다음 지침을 참고하세요.
 
 #### 계정 수준 어트리뷰션 윈도우
 
@@ -115,11 +126,11 @@ Link Settings > Attribution Windows에서 어트리뷰션 윈도우를 편집할
 
 ![이미지](/_assets/img/pages/dashboard/people-based-attribution/attribution-windows.png)
 
-계정 수준 어트리뷰션 윈도우에 대한 자세한 내용은 [사용자 중심 어트리뷰션](/pages/dashboard/people-based-attribution/#attribution-windows)을 참조하세요.
+계정 수준 어트리뷰션 윈도우에 대한 자세한 내용은 [사용자 중심 어트리뷰션](/dashboard/people-based-attribution/#attribution-windows)을 참조하세요.
 
 #### 광고 네트워크 어트리뷰션 윈도우
 
-You can edit your attribution windows at the ad network level, if your ad network requires it. This is recommended when you enable networks like Apple Search Ads, Facebook and Google, who may have different windows for installs. With this, you can preserve your Account Level Attribution Windows, as well.
+광고 네트워크에서 어트리뷰션 윈도우를 사용해야 한다면 광고 네트워크 수준에서 어트리뷰션 윈도우를 편집할 수 있습니다. 이 방법은 인스톨에 대해 다른 어트리뷰션 윈도우 기간을 두는 Apple Search Ads, Facebook, Google과 같은 네트워크를 사용할 때 권장됩니다. 이렇게 하면 계정별 설정된 어트리뷰션 윈도우도 유지할 수 있습니다.
 
 ![이미지](/_assets/img/pages/deep-linked-ads/branch-universal-ads/anaw_clear.png)
 
